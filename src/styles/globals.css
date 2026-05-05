@@ -1,0 +1,16 @@
+/* Global overflow prevention for mobile */
+html,
+body {
+    overflow-x: hidden;
+    max-width: 100vw;
+}
+
+/* Ensure smooth scrolling */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Prevent horizontal scroll on all sections */
+* {
+    box-sizing: border-box;
+}

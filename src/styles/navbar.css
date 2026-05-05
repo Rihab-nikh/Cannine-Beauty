@@ -1,0 +1,229 @@
+.nb-wrap {
+    background: #fff;
+    padding: 0 2rem;
+    font-family: 'Jost', sans-serif;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Bottom shimmer line */
+.nb-wrap::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, #9333ea55, #eab30888, #9333ea55, transparent);
+}
+
+/* Subtle purple glow background */
+.nb-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 50% 120% at 50% 50%, rgba(147, 51, 234, 0.04) 0%, transparent 70%);
+    pointer-events: none;
+}
+
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 80px;
+    position: relative;
+    z-index: 1;
+}
+
+/* ── Brand ── */
+.nb-brand {
+    display: flex;
+    gap: 2px;
+    cursor: pointer;
+    transition: opacity 0.3s;
+    text-decoration: none;
+}
+
+.nb-brand:hover {
+    opacity: 0.8;
+}
+
+.nb-logo-wrap {
+    position: relative;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: -8px;
+}
+
+/* Outer rotating ring */
+.nb-logo-wrap::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border-radius: 50%;
+    border: 1px solid rgba(147, 51, 234, 0.2);
+    animation: nb-spin 8s linear infinite;
+}
+
+/* Inner dashed ring */
+.nb-logo-wrap::before {
+    content: '';
+    position: absolute;
+    inset: 4px;
+    border-radius: 50%;
+    border: 1px dashed rgba(234, 179, 8, 0.25);
+    animation: nb-spin 12s linear infinite reverse;
+}
+
+@keyframes nb-spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+.nb-logo-wrap img {
+    width: 40px;
+    height: 40px;
+    object-fit: contain;
+    position: relative;
+    z-index: 1;
+}
+
+.nb-brand-text {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    margin-left: -4px;
+}
+
+.nb-brand-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 0.03em;
+    line-height: 1;
+}
+
+.nb-brand-name .nb-c {
+    color: #9333ea;
+}
+
+.nb-brand-name .nb-b {
+    color: #ca8a04;
+}
+
+.nb-brand-sub {
+    font-size: 8.5px;
+    font-weight: 300;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #aaa;
+}
+
+/* ── Nav Links ── */
+.nb-links {
+    display: flex;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nb-links a {
+    display: block;
+    padding: 6px 16px;
+    font-size: 11.5px;
+    font-weight: 400;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #555;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.25s;
+}
+
+/* Gradient underline on hover */
+.nb-links a::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    right: 50%;
+    height: 1.5px;
+    background: linear-gradient(90deg, #9333ea, #ca8a04);
+    border-radius: 2px;
+    transition: left 0.3s ease, right 0.3s ease;
+}
+
+.nb-links a:hover {
+    color: #9333ea;
+}
+
+.nb-links a:hover::after {
+    left: 16px;
+    right: 16px;
+}
+
+/* ── CTA Button ── */
+.nb-cta {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    padding: 10px 26px;
+    font-family: 'Jost', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 2px;
+    background: linear-gradient(135deg, #7c3aed 0%, #9333ea 50%, #a855f7 100%);
+    border: none;
+    overflow: hidden;
+    transition: transform 0.2s, box-shadow 0.25s;
+}
+
+/* Shimmer sweep on hover */
+.nb-cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.18), transparent);
+    transform: skewX(-20deg);
+    transition: left 0.5s;
+}
+
+.nb-cta:hover::before {
+    left: 160%;
+}
+
+.nb-cta:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 24px rgba(147, 51, 234, 0.35), 0 1px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Gold diamond accent */
+.nb-cta-diamond {
+    display: inline-block;
+    width: 5px;
+    height: 5px;
+    background: rgba(234, 179, 8, 0.9);
+    transform: rotate(45deg);
+    margin-right: 10px;
+    flex-shrink: 0;
+}
+
+/* ── Mobile: hide links ── */
+@media (max-width: 768px) {
+    .nb-links {
+        display: none;
+    }
+}
