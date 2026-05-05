@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react';
 import { ImageWithFallback } from './components/ImageWithFallback';
 import { Calendar, Scissors, Heart, Clock, MapPin, Phone, Mail, Sparkles, Menu, X } from 'lucide-react';
+import logoImage from '../imports/logo.png';
 
 export default function App() {
   const [formData, setFormData] = useState({
@@ -50,7 +51,7 @@ export default function App() {
         <div className="mx-auto flex h-[72px] max-w-7xl items-center justify-between px-5 sm:px-6 lg:px-8">
           <a href="#home" className="flex min-w-0 items-center gap-2 sm:gap-3">
             <div className="flex h-10 w-10 sm:h-12 sm:w-12 shrink-0 items-center justify-center">
-              <img src="/src/imports/logo.png" alt="Canine Beauty Logo" className="h-full w-full object-contain" />
+              <img src={logoImage} alt="Canine Beauty Logo" className="h-full w-full object-contain" />
             </div>
             <div className="min-w-0 leading-tight">
               <p className="truncate text-base sm:text-lg font-bold text-gray-900">
@@ -665,7 +666,7 @@ export default function App() {
             <div>
               <div className="mb-5 flex items-center gap-3">
                 <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/10 ring-1 ring-white/15">
-                  <img src="/src/imports/logo.png" alt="Canine Beauty" className="h-12 w-12 object-contain" />
+                  <img src={logoImage} alt="Canine Beauty" className="h-12 w-12 object-contain" />
                 </div>
                 <div>
                   <p className="text-xl font-black tracking-tight leading-tight">
